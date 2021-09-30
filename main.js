@@ -55,3 +55,27 @@ const findInvalidCards = array => {
   }
   return invalidCards;
 };
+
+const idInvalidCardCompanies = array => {
+  let companies = []
+  for (let index = 0; index < array.length; index++) {
+    switch (array[index][0]) {
+      case 3: companies.push('Amex')
+        break;
+      case 4: companies.push('Visa')
+        break;
+      case 5: companies.push('Mastercard')
+        break;
+      case 6: companies.push('Discover')
+        break;
+      default: companies.push('Company not found')
+    }
+  }
+
+  // looping over repeated companies
+  let filteredCompanies = companies.filter((item, index) => {
+    return companies.indexOf(item) === index;
+  })
+
+  return filteredCompanies;// returns an array of companies
+};
