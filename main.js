@@ -45,3 +45,13 @@ const validateCred = array => {
   let total = doubledDigSum + normalDigSum
   return total % 10 == 0 ? true : false;
 };
+
+const findInvalidCards = array => {
+  let invalidCards = [];
+  for (let index = 0; index < array.length; index++) {
+    if (validateCred(array[index]) == false) {
+      invalidCards.push(array[index]);
+    }
+  }
+  return invalidCards;
+};
