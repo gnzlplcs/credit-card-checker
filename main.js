@@ -24,11 +24,24 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+const validateCred = array => {
+  let doubledDigSum = 0;
+  let normalDigSum = 0;
 
+  // looping over doubled digits
+  for (let index = array.length - 2; index >= 0; index -= 2) {
+    if (array[index] * 2 > 9) {
+      doubledDigSum += array[index] * 2 - 9;
+    } else {
+      doubledDigSum += array[index] * 2;
+    }
+  }
 
+  //  looping over no-doubled digits
+  for (let index = array.length - 1; index >= 0; index -= 2) {
+    normalDigSum += array[index];
+  }
 
-
-
-
-
-
+  let total = doubledDigSum + normalDigSum
+  return total % 10 == 0 ? true : false;
+};
